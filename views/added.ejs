@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Added-Customers</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="loader hidden">
+        <img class="loading-img" src="https://www.pickabook.club/assets/img/please_wait.gif" alt="Loading.....">
+    </div>
+    <div class="success">
+        <h1 class="h1-added">Added-Customers</h1><br>
+        <h5 style="text-align: center;">Click on Account-No to transfer Money</h5>
+    </div>
+    <table class="table-1 table-striped" border="4px">
+        <thead>
+          <tr class="row-header">
+            <th scope="col">Customer-Name</th>
+            <th scope="col">Mobile-no</th>
+            <th scope="col">Customer-Id</th>
+            <th scope="col">Account-No</th>
+            <th scope="col">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+            <%customersList.forEach(function(customer){%>
+                <tr class="row-data">
+                    <th scope="row"><%= customer.name %></th>
+                    <td><%= customer.mobno %></td>
+                    <td><%= customer.id %></td>
+                    <td><a href="/onecust/<%=customer._id%>" style="color: #00008B;"><%= customer.ackno %></a></td>
+                    <td><%= customer.amount %></td>
+                </tr>
+            <%})%>
+        </tbody>
+      </table>
+</body>
+</html>

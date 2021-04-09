@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Send</title>
+</head>
+
+<body>
+    <!-- <img src="https://www.indianfolk.com/wp-content/uploads/2019/03/bank-logo.jpg"> -->
+    <marquee class="marq2" behavior="scroll" direction="left" scrollamount="16">Transfer Funds to Customers</marquee>
+    <form action="/send" method="POST" class="form-signin2 form-signin">
+            <div class="col xs-9">
+                <label for="sender" class="col-xs-3 control-label white">Sender</label>
+                <input list="senders" class=" form-control" name="Sname" >
+                <datalist id="senders">
+                <%  putCustomers.forEach(function(item){ %>
+                    <option value= <%= item.name %> ></option>
+                <%  })  %>
+                </datalist>
+            </div>
+            <div class="col xs-9">
+                <label for="receiver" class="col-xs-3 control-label white">Receiver</label>
+                <input list="receivers" class="form-control" name = "Rname">
+                <datalist id= "receivers">
+                <%  putCustomers.forEach(function(item){ %>
+                    <option value= <%= item.name %> ></option>
+                <%  })  %>
+                </datalist>
+            </div>
+            <div class="col xs-9">
+                <label for="amount" class="col-xs-3 control-label white">Amount</label>
+                <input type="text" class="form-control" name = "Amount">
+            </div>
+        <!-- <label>Sender:</label>
+        <input type="text" class="form-control" id="senderName" name="Sname" required autofocus autocomplete="off">
+        <small class="form-text text-muted">We'll never share your details with anyone else.</small>
+        
+        <label>Recipient:</label>
+        <input type="text" class="form-control" id="receiverName" name="Rname" required autofocus autocomplete="off">
+    
+        <label>Amount:</label>
+        <input type="positive number" class="form-control" id="amountSent" name="Amount" autocomplete="off"> -->
+    <button type="submit" class="button-send btn btn-lg btn-primary" value="Submit">Confirm</button>
+    </form>
+</body>
+</html>

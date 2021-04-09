@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+    
+    <title>Login Page</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="/css/styles.css" rel="stylesheet">
+  </head>
+
+    <body class="text-center">
+        <script src="https://kit.fontawesome.com/f0ac618cc3.js" crossorigin="anonymous"></script>
+        <form action="/success" class="form-signin2 form-signin" method="POST">
+        <h1 class="h1-login">User-Login</h1>
+        
+        <label style="font-size: 25px;"><i class="fas fa-user"></i> Username:</label>
+        <input type="text" style="background-color: rgb(255, 249, 197);" name="username" class="form-control top" placeholder="Username" required autofocus autocomplete="off">
+        <label style="font-size: 25px;"><i class="fas fa-lock"></i> Password:</label>
+        <input type="password" id="psw" style="background-color: rgb(255, 249, 197);" name="password" class="form-control last" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required autocomplete="off">
+        <button class="btn btn-lg btn-outline-primary" href="/login">Login</button>
+        </form>
+        <div id="message">
+          <h3>Password must contain the following:</h3>
+          <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+          <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+          <p id="number" class="invalid">A <b>number</b></p>
+          <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+        </div>
+        <script>
+          var myInput = document.getElementById("psw");
+          var letter = document.getElementById("letter");
+          var capital = document.getElementById("capital");
+          var number = document.getElementById("number");
+          var length = document.getElementById("length");
+          
+          // When the user clicks on the password field, show the message box
+          myInput.onfocus = function() {
+            document.getElementById("message").style.display = "block";
+          }
+          
+          // When the user clicks outside of the password field, hide the message box
+          myInput.onblur = function() {
+            document.getElementById("message").style.display = "none";
+          }
+          
+          // When the user starts to type something inside the password field
+          myInput.onkeyup = function() {
+            // Validate lowercase letters
+            var lowerCaseLetters = /[a-z]/g;
+            if(myInput.value.match(lowerCaseLetters)) {  
+              letter.classList.remove("invalid");
+              letter.classList.add("valid");
+            } else {
+              letter.classList.remove("valid");
+              letter.classList.add("invalid");
+            }
+            
+            // Validate capital letters
+            var upperCaseLetters = /[A-Z]/g;
+            if(myInput.value.match(upperCaseLetters)) {  
+              capital.classList.remove("invalid");
+              capital.classList.add("valid");
+            } else {
+              capital.classList.remove("valid");
+              capital.classList.add("invalid");
+            }
+          
+            // Validate numbers
+            var numbers = /[0-9]/g;
+            if(myInput.value.match(numbers)) {  
+              number.classList.remove("invalid");
+              number.classList.add("valid");
+            } else {
+              number.classList.remove("valid");
+              number.classList.add("invalid");
+            }
+            
+            // Validate length
+            if(myInput.value.length >= 8) {
+              length.classList.remove("invalid");
+              length.classList.add("valid");
+            } else {
+              length.classList.remove("valid");
+              length.classList.add("invalid");
+            }
+          }
+          </script>
+    </body>
+  </html>

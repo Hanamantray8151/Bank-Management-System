@@ -1,0 +1,32 @@
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/css/styles.css">
+<title>History</title>
+<div class="pt-4 pb-4 pl-4 pr-4">
+  <span class="border border-5">
+    <table class="history-table table table-striped" style="background-color: lightgreen;" border="2px">
+      <thead>
+        <tr style="color: darkred;">
+          <th width="100px" scope="col" style="text-align: center;">Sender's Name</th>
+          <th width="100px" scope="col" style="text-align: center;">Receiver's Name</th>
+          <th width="100px" scope="col" style="text-align: center;">Amount</th>
+        </tr>
+      </thead>
+      <%data.forEach(function(item){%>
+        <tbody>
+          <tr style="color: black;">
+            <td width="100px" style="text-align: center;"><%=  item.sendername  %></td>
+            <td width="100px" style="text-align: center;"><%=  item.receivername  %></td>
+            <td width="100px" style="text-align: center;"><%=  item.money  %></td>
+           </tr>
+          </tbody>
+      <%})%>
+
+
+    </table>
+    </span>
+   </div>
+<br>
+<br>
